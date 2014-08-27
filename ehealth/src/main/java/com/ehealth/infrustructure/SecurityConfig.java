@@ -26,7 +26,7 @@ import com.ehealth.infrustructure.security.SecurityService;
 @Configuration
 @ComponentScan
 @PropertySource("classpath:application.properties")
-//@EnableWebSecurity
+@EnableWebSecurity
 @EnableGlobalMethodSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
