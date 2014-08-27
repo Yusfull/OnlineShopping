@@ -2,6 +2,9 @@ package com.ehealth.service;
 
 import java.util.List;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
+
 import com.ehealth.domain.Person;
 	
 	public interface PersonService {
@@ -17,7 +20,7 @@ import com.ehealth.domain.Person;
 	    public void delete(Person person);
 
 	    public Person findByUsername(String username);
-
+	    
 	    public Person findByEmail(String username);
 
 	}

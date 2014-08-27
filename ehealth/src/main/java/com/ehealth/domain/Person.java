@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 /**
@@ -26,7 +27,7 @@ public class Person implements Serializable {
 	private String password;
 	private String email;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles;
 
 	public String getId() {

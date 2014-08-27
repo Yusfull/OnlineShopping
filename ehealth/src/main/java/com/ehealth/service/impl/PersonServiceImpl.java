@@ -1,6 +1,8 @@
 package com.ehealth.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.ehealth.domain.Person;
@@ -12,8 +14,10 @@ public class PersonServiceImpl implements PersonService {
 
     @Autowired
     private PersonRepository personRepository;
-
+    
+    
     @Override
+    @Secured("ROLE_USER")
     public Person findByEmail(String username) {
         return personRepository.findByEmail(username);
     }
