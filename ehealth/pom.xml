@@ -13,12 +13,17 @@
 			<name>SpringSource Milestone Repository</name>
 			<url>http://repo.springsource.org/milestone</url>
 		</repository>
+		<repository>
+			<id>spring-snapshot</id>
+			<name>Spring Snapshot Repository</name>
+			<url>http://repo.springsource.org/snapshot</url>
+		</repository>
 	</repositories>
-	
+
 	<properties>
 
 		<!-- Generic properties -->
-		<java.version>1.6</java.version>
+		<java.version>1.7</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -43,7 +48,7 @@
 
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
-		<spring-web>4.0.6.RELEASE</spring-web>
+
 
 	</properties>
 
@@ -76,11 +81,6 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -132,10 +132,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
+			<version>3.2.0.RC1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -166,6 +163,25 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-cypher-compiler-2.1</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>4.0.0.CI-SNAPSHOT</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>4.0.0.CI-SNAPSHOT</version>
+  </dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -188,11 +204,6 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>jstl</artifactId>
 				<version>${jstl.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
-				<version>${servlet.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.servlet.jsp</groupId>
@@ -240,16 +251,6 @@
 				<version>5.1.6</version>
 			</dependency>
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-web</artifactId>
-				<version>3.2.4.RELEASE</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-web</artifactId>
-				<version>3.1.4.RELEASE</version>
-			</dependency>
-			<dependency>
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>
 				<version>1.1.0.Final</version>
@@ -279,8 +280,37 @@
 				<artifactId>spring-security-config</artifactId>
 				<version>3.2.0.M2</version>
 			</dependency>
-		</dependencies>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>6.0</version>
+				<scope>provided</scope>
+			</dependency>
+		
+   
+   
+    </dependencies>
 	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
 
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

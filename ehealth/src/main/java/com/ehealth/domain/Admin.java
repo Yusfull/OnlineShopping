@@ -2,11 +2,13 @@ package com.ehealth.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 /**
  * @author Georges Soffo
  */
+@Entity
 public class Admin {
 	
 	@Id
